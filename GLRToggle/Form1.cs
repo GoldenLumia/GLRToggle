@@ -7,11 +7,11 @@ namespace GLRToggle
     {
         public void FileCheck()
         {
-            string path = @"D:\Program Files (x86)\Steam\User32.dll";
-            string path2 = @"D:\Program Files (x86)\Steam\disabled\User32.dll";
-            string path3 = @"D:\Program Files (x86)\Steam\appcache\appinfo.vdf";
-            string path4 = @"D:\Program Files (x86)\Steam\version.dll";
-            string path5 = @"D:\Program Files (x86)\Steam\disabled\version.dll";
+            string path = @"D:\Games\Steam\User32.dll";
+            string path2 = @"D:\Games\Steam\disabled\User32.dll";
+            string path3 = @"D:\Games\Steam\appcache\appinfo.vdf";
+            string path4 = @"D:\Games\Steam\version.dll";
+            string path5 = @"D:\Games\Steam\disabled\version.dll";
 
             if (!File.Exists(path))
             {
@@ -74,10 +74,10 @@ namespace GLRToggle
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.IO.Directory.CreateDirectory(@"D:\Program Files (x86)\Steam\disabled");
+            System.IO.Directory.CreateDirectory(@"D:\Games\Steam\disabled");
 
-            string path = @"D:\Program Files (x86)\Steam\User32.dll";
-            string path2 = @"D:\Program Files (x86)\Steam\disabled\User32.dll";
+            string path = @"D:\Games\Steam\User32.dll";
+            string path2 = @"D:\Games\Steam\disabled\User32.dll";
 
             try
             {
@@ -114,10 +114,10 @@ namespace GLRToggle
 
         private void button2_Click(object sender, EventArgs e)
         {
-            System.IO.Directory.CreateDirectory(@"D:\Program Files (x86)\Steam\disabled");
+            System.IO.Directory.CreateDirectory(@"D:\Games\Steam\disabled");
 
-            string path = @"D:\Program Files (x86)\Steam\disabled\User32.dll";
-            string path2 = @"D:\Program Files (x86)\Steam\User32.dll";
+            string path = @"D:\Games\Steam\disabled\User32.dll";
+            string path2 = @"D:\Games\Steam\User32.dll";
 
             try
             {
@@ -154,8 +154,8 @@ namespace GLRToggle
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string path = @"D:\Program Files (x86)\Steam\appcache\appinfo.vdf";
-            string path2 = @"D:\Program Files (x86)\Steam\appcache\packageinfo.vdf";
+            string path = @"D:\Games\Steam\appcache\appinfo.vdf";
+            string path2 = @"D:\Games\Steam\appcache\packageinfo.vdf";
 
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to clear the Steam Cache? (appinfo.vdf and packageinfo.vdf will be permanently deleted!)", "Confirm", MessageBoxButtons.YesNo);
 
@@ -188,10 +188,10 @@ namespace GLRToggle
 
         private void button4_Click(object sender, EventArgs e)
         {
-            System.IO.Directory.CreateDirectory(@"D:\Program Files (x86)\Steam\disabled");
+            System.IO.Directory.CreateDirectory(@"D:\Games\Steam\disabled");
 
-            string path = @"D:\Program Files (x86)\Steam\disabled\version.dll";
-            string path2 = @"D:\Program Files (x86)\Steam\version.dll";
+            string path = @"D:\Games\Steam\disabled\version.dll";
+            string path2 = @"D:\Games\Steam\version.dll";
 
             try
             {
@@ -228,10 +228,10 @@ namespace GLRToggle
 
         private void button5_Click(object sender, EventArgs e)
         {
-            System.IO.Directory.CreateDirectory(@"D:\Program Files (x86)\Steam\disabled");
+            System.IO.Directory.CreateDirectory(@"D:\Games\Steam\disabled");
 
-            string path = @"D:\Program Files (x86)\Steam\version.dll";
-            string path2 = @"D:\Program Files (x86)\Steam\disabled\version.dll";
+            string path = @"D:\Games\Steam\version.dll";
+            string path2 = @"D:\Games\Steam\disabled\version.dll";
 
             try
             {
