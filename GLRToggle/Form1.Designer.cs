@@ -39,6 +39,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -74,9 +76,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(211, 294);
+            this.button3.Location = new System.Drawing.Point(83, 331);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(263, 35);
+            this.button3.Size = new System.Drawing.Size(209, 35);
             this.button3.TabIndex = 3;
             this.button3.Text = "Clear Cached Steam Package Data";
             this.button3.UseVisualStyleBackColor = true;
@@ -134,12 +136,31 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(60, 354);
+            this.label3.Location = new System.Drawing.Point(138, 299);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(574, 15);
+            this.label3.Size = new System.Drawing.Size(402, 15);
             this.label3.TabIndex = 9;
-            this.label3.Text = "If both buttons are disabled your install is not detected. Restart the program or" +
-    " install the unlocker correctly.";
+            this.label3.Text = "If all buttons are disabled use \"Set Steam File Path\" or restart your program.";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(389, 331);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(209, 35);
+            this.button6.TabIndex = 10;
+            this.button6.Text = "Set Steam File Path\r\n";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(307, 325);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(61, 47);
+            this.button7.TabIndex = 11;
+            this.button7.Text = "Force Recheck";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Form1
             // 
@@ -147,6 +168,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(688, 378);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
@@ -179,5 +202,7 @@
         private Button button4;
         private Button button5;
         private Label label3;
+        private Button button6;
+        private Button button7;
     }
 }
