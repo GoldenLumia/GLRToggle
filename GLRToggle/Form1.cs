@@ -8,6 +8,12 @@ namespace GLRToggle
     {
         public void FileCheck()
         {
+            // Form1.Designer.cs references:
+            // button1 = GLR Disable
+            // button2 = GLR Enable
+            // button3 = Clear Steam Cache
+            // button4 = Koala Enable
+            // button5 = Koala Disable
             string userInputPath = Properties.Settings1.Default.userpath;
             string path = @"\User32.dll";
             string path2 = @"\disabled\User32.dll";
@@ -20,57 +26,20 @@ namespace GLRToggle
             string userInputPath4 = userInputPath + path4;
             string userInputPath5 = userInputPath + path5;
 
-            if (!File.Exists(userInputPath1))
-            {
-                button1.Enabled = false;
-            }
+            // Initialize GLR disable button
+            button1.Enabled = File.Exists(userInputPath1);
 
-            if (!File.Exists(userInputPath2))
-            {
-                button2.Enabled = false;
-            }
+            // If User32.dll in disable AND version.dll doesn't exist in the root, enable the Enable button for GLR
+            button2.Enabled = File.Exists(userInputPath2) & !File.Exists(userInputPath4);
 
-            if (File.Exists(userInputPath1))
-            {
-                button1.Enabled = true;
-            }
+            // Initialize Clear Steam Cache button
+            button3.Enabled = File.Exists(userInputPath3);
 
-            if (File.Exists(userInputPath2))
-            {
-                button2.Enabled = true;
-            }
+            // If version.dll in disable AND User32.dll doesn't exist in the root, enable the Enable button for Koala
+            button4.Enabled = File.Exists(userInputPath5) & !File.Exists(userInputPath1);
 
-            if (File.Exists(userInputPath3) | File.Exists(userInputPath4))
-            {
-                button3.Enabled = true;
-            }
-
-            if (!File.Exists(userInputPath3) & !File.Exists(userInputPath4))
-            {
-                button3.Enabled = false;
-            }
-
-            // If no version.dll in root, disable the Disable button
-            if (!File.Exists(userInputPath4))
-            {
-                button5.Enabled = false;
-            }
-
-            // If no version.dll in disabled, disable the Enable button
-            if (!File.Exists(userInputPath5))
-            {
-                button4.Enabled = false;
-            }
-
-            if (File.Exists(userInputPath4))
-            {
-                button5.Enabled = true;
-            }
-
-            if (File.Exists(userInputPath5))
-            {
-                button4.Enabled = true;
-            }
+            // Initialize Koala disable button
+            button5.Enabled = File.Exists(userInputPath4);
         }
 
         public Form1()
