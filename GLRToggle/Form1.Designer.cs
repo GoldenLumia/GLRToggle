@@ -29,165 +29,178 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.SuspendLayout();
+            button1 = new Button();
+            button2 = new Button();
+            pictureBox1 = new PictureBox();
+            button3 = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            pictureBox2 = new PictureBox();
+            button4 = new Button();
+            button5 = new Button();
+            label3 = new Label();
+            button6 = new Button();
+            button7 = new Button();
+            checkBox_override = new CheckBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(60, 209);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(263, 67);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Disable";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new Point(60, 209);
+            button1.Name = "button1";
+            button1.Size = new Size(263, 67);
+            button1.TabIndex = 0;
+            button1.Text = "Disable";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(60, 83);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(263, 67);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Enable";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.Location = new Point(60, 83);
+            button2.Name = "button2";
+            button2.Size = new Size(263, 67);
+            button2.TabIndex = 1;
+            button2.Text = "Enable";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(173, 153);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 50);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(173, 153);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(36, 50);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(83, 331);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(209, 35);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Clear Cached Steam Package Data";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.Location = new Point(83, 331);
+            button3.Name = "button3";
+            button3.Size = new Size(209, 35);
+            button3.TabIndex = 3;
+            button3.Text = "Clear Cached Steam Package Data";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(155, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 37);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "GLR";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(155, 29);
+            label1.Name = "label1";
+            label1.Size = new Size(70, 37);
+            label1.TabIndex = 4;
+            label1.Text = "GLR";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(449, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 37);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Koala";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(449, 29);
+            label2.Name = "label2";
+            label2.Size = new Size(91, 37);
+            label2.TabIndex = 8;
+            label2.Text = "Koala";
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(479, 153);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(36, 50);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(479, 153);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(36, 50);
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(366, 83);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(263, 67);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Enable";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            button4.Location = new Point(366, 83);
+            button4.Name = "button4";
+            button4.Size = new Size(263, 67);
+            button4.TabIndex = 6;
+            button4.Text = "Enable";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(366, 209);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(263, 67);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Disable";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            button5.Location = new Point(366, 209);
+            button5.Name = "button5";
+            button5.Size = new Size(263, 67);
+            button5.TabIndex = 5;
+            button5.Text = "Disable";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(138, 299);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(402, 15);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "If all buttons are disabled use \"Set Steam File Path\" or restart your program.";
+            label3.AutoSize = true;
+            label3.Location = new Point(138, 299);
+            label3.Name = "label3";
+            label3.Size = new Size(402, 15);
+            label3.TabIndex = 9;
+            label3.Text = "If all buttons are disabled use \"Set Steam File Path\" or restart your program.";
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(389, 331);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(209, 35);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "Set Steam File Path\r\n";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            button6.Location = new Point(389, 331);
+            button6.Name = "button6";
+            button6.Size = new Size(209, 35);
+            button6.TabIndex = 10;
+            button6.Text = "Set Steam File Path\r\n";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(307, 325);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(61, 47);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "Force Recheck";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            button7.Location = new Point(307, 325);
+            button7.Name = "button7";
+            button7.Size = new Size(61, 47);
+            button7.TabIndex = 11;
+            button7.Text = "Force Recheck";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
+            // checkBox_override
+            // 
+            checkBox_override.CheckAlign = ContentAlignment.TopRight;
+            checkBox_override.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            checkBox_override.Location = new Point(610, 7);
+            checkBox_override.Name = "checkBox_override";
+            checkBox_override.Size = new Size(72, 21);
+            checkBox_override.TabIndex = 12;
+            checkBox_override.Text = "Override\r\n";
+            checkBox_override.TextAlign = ContentAlignment.TopRight;
+            checkBox_override.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(688, 378);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
-            this.Text = "GLR Enabler/Disabler";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlDark;
+            ClientSize = new Size(688, 378);
+            Controls.Add(checkBox_override);
+            Controls.Add(button7);
+            Controls.Add(button6);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(pictureBox2);
+            Controls.Add(button4);
+            Controls.Add(button5);
+            Controls.Add(label1);
+            Controls.Add(button3);
+            Controls.Add(pictureBox1);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "Form1";
+            Text = "GLR Enabler/Disabler";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -204,5 +217,6 @@
         private Label label3;
         private Button button6;
         private Button button7;
+        private CheckBox checkBox_override;
     }
 }

@@ -29,17 +29,33 @@ namespace GLRToggle
             // Initialize GLR disable button
             button1.Enabled = File.Exists(userInputPath1);
 
-            // If User32.dll in disable AND version.dll doesn't exist in the root, enable the Enable button for GLR
-            button2.Enabled = File.Exists(userInputPath2) & !File.Exists(userInputPath4);
-
             // Initialize Clear Steam Cache button
             button3.Enabled = File.Exists(userInputPath3);
 
-            // If version.dll in disable AND User32.dll doesn't exist in the root, enable the Enable button for Koala
-            button4.Enabled = File.Exists(userInputPath5) & !File.Exists(userInputPath1);
-
             // Initialize Koala disable button
             button5.Enabled = File.Exists(userInputPath4);
+
+            // If User32.dll in disable AND version.dll doesn't exist in the root, enable the Enable button for GLR
+            // Add check for override checkbox. If checked, always enable the button.
+            if (File.Exists(userInputPath2) & !File.Exists(userInputPath4) | checkBox_override.Checked)
+            {
+                button2.Enabled = true;
+            }
+            else if (!File.Exists(userInputPath2) | File.Exists(userInputPath4) & (checkBox_override.Checked == false))
+            {
+                button2.Enabled = false;
+            }
+
+            // If version.dll in disable AND User32.dll doesn't exist in the root, enable the Enable button for Koala
+            // Add check for override checkbox. If checked, always enable the button.
+            if (File.Exists(userInputPath5) & !File.Exists(userInputPath1) | checkBox_override.Checked)
+            {
+                button4.Enabled = true;
+            }
+            else if (!File.Exists(userInputPath5) | File.Exists(userInputPath1) & (checkBox_override.Checked == false))
+            {
+                button4.Enabled = false;
+            }
         }
 
         public Form1()
@@ -287,6 +303,12 @@ namespace GLRToggle
         }
 
         private void button7_Click(object sender, EventArgs e)
+        {
+            FileCheck();
+        }
+
+        // Call FileCheck anytime the checkbox is changed
+        private void checkBox_override_CheckedChanged(object sender, EventArgs e)
         {
             FileCheck();
         }
