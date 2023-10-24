@@ -1,11 +1,15 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Media;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GLRToggle
 {
     public partial class Form1 : Form
     {
+        private SoundPlayer soundPlayer;
+
         public void FileCheck()
         {
             // Form1.Designer.cs references:
@@ -62,6 +66,7 @@ namespace GLRToggle
         {
             InitializeComponent();
             FileCheck();
+            soundPlayer = new SoundPlayer("wow.wav");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -307,8 +312,19 @@ namespace GLRToggle
             FileCheck();
         }
 
+        // teehee
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            soundPlayer.Play();
+        }
+
+        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            soundPlayer.Play();
+        }
+
         // Call FileCheck anytime the checkbox is changed
-        private void checkBox_override_CheckedChanged(object sender, EventArgs e)
+        private void checkBox_override_CheckedChanged_1(object sender, EventArgs e)
         {
             FileCheck();
         }

@@ -74,6 +74,7 @@
             pictureBox1.Size = new Size(36, 50);
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
+            pictureBox1.MouseClick += pictureBox1_MouseClick;
             // 
             // button3
             // 
@@ -113,6 +114,7 @@
             pictureBox2.Size = new Size(36, 50);
             pictureBox2.TabIndex = 7;
             pictureBox2.TabStop = false;
+            pictureBox2.MouseClick += pictureBox2_MouseClick;
             // 
             // button4
             // 
@@ -174,6 +176,7 @@
             checkBox_override.Text = "Override\r\n";
             checkBox_override.TextAlign = ContentAlignment.TopRight;
             checkBox_override.UseVisualStyleBackColor = true;
+            checkBox_override.CheckedChanged += checkBox_override_CheckedChanged_1;
             // 
             // Form1
             // 
