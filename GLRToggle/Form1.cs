@@ -1,13 +1,23 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Media;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GLRToggle
 {
     public partial class Form1 : Form
     {
+        private SoundPlayer soundPlayer;
+
         public void FileCheck()
         {
+            // Form1.Designer.cs references:
+            // button1 = GLR Disable
+            // button2 = GLR Enable
+            // button3 = Clear Steam Cache
+            // button4 = Koala Enable
+            // button5 = Koala Disable
             string userInputPath = Properties.Settings1.Default.userpath;
             string path = @"\User32.dll";
             string path2 = @"\disabled\User32.dll";
@@ -20,56 +30,35 @@ namespace GLRToggle
             string userInputPath4 = userInputPath + path4;
             string userInputPath5 = userInputPath + path5;
 
-            if (!File.Exists(userInputPath1))
-            {
-                button1.Enabled = false;
-            }
+            // Initialize GLR disable button
+            button1.Enabled = File.Exists(userInputPath1);
 
-            if (!File.Exists(userInputPath2))
+            // Initialize Clear Steam Cache button
+            button3.Enabled = File.Exists(userInputPath3);
+
+            // Initialize Koala disable button
+            button5.Enabled = File.Exists(userInputPath4);
+
+            // If User32.dll in disable AND version.dll doesn't exist in the root, enable the Enable button for GLR
+            // Add check for override checkbox. If checked, always enable the button.
+            if (File.Exists(userInputPath2) & !File.Exists(userInputPath4) | checkBox_override.Checked)
+            {
+                button2.Enabled = true;
+            }
+            else if (!File.Exists(userInputPath2) | File.Exists(userInputPath4) & (checkBox_override.Checked == false))
             {
                 button2.Enabled = false;
             }
 
-            if (File.Exists(userInputPath1))
-            {
-                button1.Enabled = true;
-            }
-
-            if (File.Exists(userInputPath2))
-            {
-                button2.Enabled = true;
-            }
-
-            if (File.Exists(userInputPath3) | File.Exists(userInputPath4))
-            {
-                button3.Enabled = true;
-            }
-
-            if (!File.Exists(userInputPath3) & !File.Exists(userInputPath4))
-            {
-                button3.Enabled = false;
-            }
-
-            // If no version.dll in root, disable the Disable button
-            if (!File.Exists(userInputPath4))
-            {
-                button5.Enabled = false;
-            }
-
-            // If no version.dll in disabled, disable the Enable button
-            if (!File.Exists(userInputPath5))
-            {
-                button4.Enabled = false;
-            }
-
-            if (File.Exists(userInputPath4))
-            {
-                button5.Enabled = true;
-            }
-
-            if (File.Exists(userInputPath5))
+            // If version.dll in disable AND User32.dll doesn't exist in the root, enable the Enable button for Koala
+            // Add check for override checkbox. If checked, always enable the button.
+            if (File.Exists(userInputPath5) & !File.Exists(userInputPath1) | checkBox_override.Checked)
             {
                 button4.Enabled = true;
+            }
+            else if (!File.Exists(userInputPath5) | File.Exists(userInputPath1) & (checkBox_override.Checked == false))
+            {
+                button4.Enabled = false;
             }
         }
 
@@ -77,6 +66,7 @@ namespace GLRToggle
         {
             InitializeComponent();
             FileCheck();
+            soundPlayer = new SoundPlayer("wow.wav");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -318,6 +308,23 @@ namespace GLRToggle
         }
 
         private void button7_Click(object sender, EventArgs e)
+        {
+            FileCheck();
+        }
+
+        // teehee
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            soundPlayer.Play();
+        }
+
+        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            soundPlayer.Play();
+        }
+
+        // Call FileCheck anytime the checkbox is changed
+        private void checkBox_override_CheckedChanged_1(object sender, EventArgs e)
         {
             FileCheck();
         }

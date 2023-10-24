@@ -10,7 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="wow.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="999835515723452466.ico" />
+    <Content Include="wow.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
