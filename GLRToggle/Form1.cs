@@ -1,14 +1,18 @@
-using System;
 using System.Diagnostics;
-using System.IO;
 using System.Media;
-using System.Security.Cryptography.X509Certificates;
+using Timer = System.Windows.Forms.Timer;
 
 namespace GLRToggle
 {
     public partial class Form1 : Form
     {
+        // EE1 Init
         private SoundPlayer soundPlayer;
+
+        // EE2 Init
+        private DateTime startTime;
+        private int clickCount;
+        private Timer timer;
 
         public void FileCheck()
         {
@@ -85,7 +89,16 @@ namespace GLRToggle
         {
             InitializeComponent();
             FileCheck();
+
+            // EE1
             soundPlayer = new SoundPlayer("wow.wav");
+
+            // EE2
+            clickCount = 0;
+
+            timer = new Timer();
+            timer.Interval = 10000; // 10 seconds
+            timer.Tick += TimerElapsed;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -334,12 +347,70 @@ namespace GLRToggle
         // teehee
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+            // ee 1
             soundPlayer.Play();
+
+            // ee 2
+            if (clickCount == 0)
+            {
+                startTime = DateTime.Now;
+                timer.Start();
+            }
+
+            clickCount++;
+
+            if (clickCount >= 5)
+            {
+                FlipPictureBox();
+                timer.Stop();
+                clickCount = 0;
+            }
         }
 
         private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
         {
+            // EE1
             soundPlayer.Play();
+
+            // EE2
+            if (clickCount == 0)
+            {
+                startTime = DateTime.Now;
+                timer.Start();
+            }
+
+            clickCount++;
+
+            if (clickCount >= 5)
+            {
+                FlipPictureBox2();
+                timer.Stop();
+                clickCount = 0;
+            }
+        }
+
+        // EE2
+        private void TimerElapsed(object sender, EventArgs e)
+        {
+            // Reset the click counter and stop the timer when time's up
+            clickCount = 0;
+            timer.Stop();
+        }
+
+        // EE2
+        private void FlipPictureBox()
+        {
+            // Flip the PictureBox here
+            pictureBox1.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            pictureBox1.Refresh();
+        }
+
+        // EE2
+        private void FlipPictureBox2()
+        {
+            // Flip the PictureBox here
+            pictureBox2.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            pictureBox2.Refresh();
         }
 
         // Call FileCheck anytime the checkbox is changed
