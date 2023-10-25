@@ -31,13 +31,32 @@ namespace GLRToggle
             string userInputPath5 = userInputPath + path5;
 
             // Initialize GLR disable button
-            button1.Enabled = File.Exists(userInputPath1);
+            if (File.Exists(userInputPath1))
+            {
+                button1.Enabled = true;
+                label1.ForeColor = Color.Green;
+            }
+            else if (!File.Exists(userInputPath1))
+            {
+                button1.Enabled = false;
+                label1.ForeColor = SystemColors.ControlText;
+            }
 
             // Initialize Clear Steam Cache button
             button3.Enabled = File.Exists(userInputPath3);
 
             // Initialize Koala disable button
-            button5.Enabled = File.Exists(userInputPath4);
+            //button5.Enabled = File.Exists(userInputPath4);
+            if (File.Exists(userInputPath4))
+            {
+                button5.Enabled = true;
+                label2.ForeColor = Color.Green;
+            }
+            else if (!File.Exists(userInputPath4))
+            {
+                button5.Enabled = false;
+                label2.ForeColor = SystemColors.ControlText;
+            }
 
             // If User32.dll in disable AND version.dll doesn't exist in the root, enable the Enable button for GLR
             // Add check for override checkbox. If checked, always enable the button.
