@@ -1,14 +1,23 @@
-using System;
 using System.Diagnostics;
-using System.IO;
 using System.Media;
-using System.Security.Cryptography.X509Certificates;
+using Timer = System.Windows.Forms.Timer;
 
 namespace GLRToggle
 {
     public partial class Form1 : Form
     {
+        // EE1 Init
         private SoundPlayer soundPlayer;
+
+        // EE2 Init
+        private DateTime startTime;
+        private int clickCount;
+        private Timer timer;
+
+        // EE3 Init
+        private int clickCount2 = 0;
+        private DateTime lastClickTime;
+        private SoundPlayer soundPlayer2;
 
         public void FileCheck()
         {
@@ -31,13 +40,32 @@ namespace GLRToggle
             string userInputPath5 = userInputPath + path5;
 
             // Initialize GLR disable button
-            button1.Enabled = File.Exists(userInputPath1);
+            if (File.Exists(userInputPath1))
+            {
+                button1.Enabled = true;
+                label1.ForeColor = Color.Green;
+            }
+            else if (!File.Exists(userInputPath1))
+            {
+                button1.Enabled = false;
+                label1.ForeColor = SystemColors.ControlText;
+            }
 
             // Initialize Clear Steam Cache button
             button3.Enabled = File.Exists(userInputPath3);
 
             // Initialize Koala disable button
-            button5.Enabled = File.Exists(userInputPath4);
+            //button5.Enabled = File.Exists(userInputPath4);
+            if (File.Exists(userInputPath4))
+            {
+                button5.Enabled = true;
+                label2.ForeColor = Color.Green;
+            }
+            else if (!File.Exists(userInputPath4))
+            {
+                button5.Enabled = false;
+                label2.ForeColor = SystemColors.ControlText;
+            }
 
             // If User32.dll in disable AND version.dll doesn't exist in the root, enable the Enable button for GLR
             // Add check for override checkbox. If checked, always enable the button.
@@ -66,7 +94,19 @@ namespace GLRToggle
         {
             InitializeComponent();
             FileCheck();
+
+            // EE1
             soundPlayer = new SoundPlayer("wow.wav");
+
+            // EE2
+            clickCount = 0;
+
+            timer = new Timer();
+            timer.Interval = 10000; // 10 seconds
+            timer.Tick += TimerElapsed;
+
+            // EE3
+            soundPlayer2 = new SoundPlayer("why_are_you_blue.wav");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -315,18 +355,94 @@ namespace GLRToggle
         // teehee
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+            // ee 1
             soundPlayer.Play();
+
+            // ee 2
+            if (clickCount == 0)
+            {
+                startTime = DateTime.Now;
+                timer.Start();
+            }
+
+            clickCount++;
+
+            if (clickCount >= 5)
+            {
+                FlipPictureBox();
+                timer.Stop();
+                clickCount = 0;
+            }
         }
 
         private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
         {
+            // EE1
             soundPlayer.Play();
+
+            // EE2
+            if (clickCount == 0)
+            {
+                startTime = DateTime.Now;
+                timer.Start();
+            }
+
+            clickCount++;
+
+            if (clickCount >= 5)
+            {
+                FlipPictureBox2();
+                timer.Stop();
+                clickCount = 0;
+            }
+        }
+
+        // EE2
+        private void TimerElapsed(object sender, EventArgs e)
+        {
+            // Reset the click counter and stop the timer when time's up
+            clickCount = 0;
+            timer.Stop();
+        }
+
+        // EE2
+        private void FlipPictureBox()
+        {
+            // Flip the PictureBox here
+            pictureBox1.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            pictureBox1.Refresh();
+        }
+
+        // EE2
+        private void FlipPictureBox2()
+        {
+            // Flip the PictureBox here
+            pictureBox2.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            pictureBox2.Refresh();
         }
 
         // Call FileCheck anytime the checkbox is changed
         private void checkBox_override_CheckedChanged_1(object sender, EventArgs e)
         {
             FileCheck();
+        }
+
+        private void label1_MouseClick(object sender, MouseEventArgs e)
+        {
+            clickCount++;
+
+            if (clickCount == 5 && DateTime.Now - lastClickTime < TimeSpan.FromSeconds(5))
+            {
+                label1.ForeColor = Color.Blue;
+                soundPlayer2.Play();
+
+                Task.Delay(TimeSpan.FromSeconds(10)).ContinueWith(t =>
+                {
+                    label1.ForeColor = SystemColors.ControlText;
+                });
+            }
+
+            lastClickTime = DateTime.Now;
         }
     }
 }

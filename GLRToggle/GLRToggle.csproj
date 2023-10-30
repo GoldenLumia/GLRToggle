@@ -10,11 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="why_are_you_blue.wav" />
     <None Remove="wow.wav" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="999835515723452466.ico" />
+    <Content Include="why_are_you_blue.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="wow.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
