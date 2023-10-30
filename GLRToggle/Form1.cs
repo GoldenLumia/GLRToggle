@@ -14,6 +14,11 @@ namespace GLRToggle
         private int clickCount;
         private Timer timer;
 
+        // EE3 Init
+        private int clickCount2 = 0;
+        private DateTime lastClickTime;
+        private SoundPlayer soundPlayer2;
+
         public void FileCheck()
         {
             // Form1.Designer.cs references:
@@ -99,6 +104,9 @@ namespace GLRToggle
             timer = new Timer();
             timer.Interval = 10000; // 10 seconds
             timer.Tick += TimerElapsed;
+
+            // EE3
+            soundPlayer2 = new SoundPlayer("why_are_you_blue.wav");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -417,6 +425,24 @@ namespace GLRToggle
         private void checkBox_override_CheckedChanged_1(object sender, EventArgs e)
         {
             FileCheck();
+        }
+
+        private void label1_MouseClick(object sender, MouseEventArgs e)
+        {
+            clickCount++;
+
+            if (clickCount == 5 && DateTime.Now - lastClickTime < TimeSpan.FromSeconds(5))
+            {
+                label1.ForeColor = Color.Blue;
+                soundPlayer2.Play();
+
+                Task.Delay(TimeSpan.FromSeconds(10)).ContinueWith(t =>
+                {
+                    label1.ForeColor = SystemColors.ControlText;
+                });
+            }
+
+            lastClickTime = DateTime.Now;
         }
     }
 }

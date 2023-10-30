@@ -95,6 +95,7 @@
             label1.Size = new Size(70, 37);
             label1.TabIndex = 4;
             label1.Text = "GLR";
+            label1.MouseClick += label1_MouseClick;
             // 
             // label2
             // 
