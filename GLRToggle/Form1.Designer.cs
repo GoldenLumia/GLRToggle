@@ -41,7 +41,6 @@
             label3 = new Label();
             button6 = new Button();
             button7 = new Button();
-            checkBox_override = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -166,26 +165,12 @@
             button7.UseVisualStyleBackColor = true;
             button7.Click += button7_Click;
             // 
-            // checkBox_override
-            // 
-            checkBox_override.CheckAlign = ContentAlignment.TopRight;
-            checkBox_override.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            checkBox_override.Location = new Point(610, 7);
-            checkBox_override.Name = "checkBox_override";
-            checkBox_override.Size = new Size(72, 21);
-            checkBox_override.TabIndex = 12;
-            checkBox_override.Text = "Override\r\n";
-            checkBox_override.TextAlign = ContentAlignment.TopRight;
-            checkBox_override.UseVisualStyleBackColor = true;
-            checkBox_override.CheckedChanged += checkBox_override_CheckedChanged_1;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
             ClientSize = new Size(688, 378);
-            Controls.Add(checkBox_override);
             Controls.Add(button7);
             Controls.Add(button6);
             Controls.Add(label3);
@@ -221,6 +206,5 @@
         private Label label3;
         private Button button6;
         private Button button7;
-        private CheckBox checkBox_override;
     }
 }
